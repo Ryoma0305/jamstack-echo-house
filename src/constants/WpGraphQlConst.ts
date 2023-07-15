@@ -1,6 +1,6 @@
 export class WpGraphQlPostConst {
   static list = `query PostListQuery {
-        posts {
+        blogs {
           edges {
             node {
               title
