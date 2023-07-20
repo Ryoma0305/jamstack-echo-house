@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
+import { usePosts } from "@/hooks/usePosts";
 // import PostService from "../services/PostService";
 // import PostType from "../types/PostType";
 
@@ -16,32 +17,9 @@ import { useCallback, useEffect, useState } from "react";
 // };
 
 export const Posts = () => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data, error, isLoading, isEmpty } = usePosts();
 
-  const getPosts = useCallback(async () => {
-    try {
-      const res = await fetch(
-        "https://api.echo-house-osaka.com/wp-json/wp/v2/blog?_embed/"
-      );
-      if (!res.ok) {
-        throw new Error("エラーが発生しました");
-      }
-      const json = await res.json();
-      setPosts(json);
-    } catch (error) {
-      setError(error);
-    }
-
-    setLoading(false);
-  }, []);
-
-  useEffect(() => {
-    getPosts();
-  }, [getPosts]);
-
-  if (loading) {
+  if (isLoading) {
     return <div>ローディング中</div>;
   }
 
@@ -49,13 +27,13 @@ export const Posts = () => {
     return <div>{error.message}</div>;
   }
 
-  if (posts.length === 0) {
+  if (isEmpty) {
     return <div>データは空です</div>;
   }
 
   return (
     <ol>
-      {posts.map((post: any) => {
+      {data.map((post: any) => {
         return (
           <li key={post.id}>
             <Link href={`/post/${post.id}`}>{post.title.rendered}</Link>
