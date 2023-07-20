@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 // import PostService from "../services/PostService";
 // import PostType from "../types/PostType";
@@ -55,7 +56,11 @@ export const Posts = () => {
   return (
     <ol>
       {posts.map((post: any) => {
-        return <li key={post.slug}>{post.title.rendered}</li>;
+        return (
+          <li key={post.id}>
+            <Link href={`/post/${post.id}`}>{post.title.rendered}</Link>
+          </li>
+        );
       })}
     </ol>
   );
