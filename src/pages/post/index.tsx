@@ -1,7 +1,7 @@
-import Posts from "@/components/posts";
+import { Posts as PostsComponent } from "@/components/posts";
 
-const Home = () => {
-  return <Posts />;
+const Posts = () => {
+  return <PostsComponent />;
 };
 
-export default Home;
+export default Posts;
