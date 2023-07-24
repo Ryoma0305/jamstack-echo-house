@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { usePosts } from "@/hooks/usePosts";
+import Head from "next/head";
 // import PostService from "../services/PostService";
 // import PostType from "../types/PostType";
 
@@ -32,15 +33,20 @@ export const Posts = () => {
   }
 
   return (
-    <ol>
-      {data.map((post: any) => {
-        return (
-          <li key={post.id}>
-            <Link href={`/posts/${post.id}`}>{post.title.rendered}</Link>
-          </li>
-        );
-      })}
-    </ol>
+    <div>
+      <Head>
+        <title>タイトル</title>
+      </Head>
+      <ol>
+        {data.map((post: any) => {
+          return (
+            <li key={post.id}>
+              <Link href={`/posts/${post.id}`}>{post.title.rendered}</Link>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
   );
 };
 
