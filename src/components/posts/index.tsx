@@ -36,7 +36,7 @@ export const Posts = () => {
       {data.map((post: any) => {
         return (
           <li key={post.id}>
-            <Link href={`/post/${post.id}`}>{post.title.rendered}</Link>
+            <Link href={`/posts/${post.id}`}>{post.title.rendered}</Link>
           </li>
         );
       })}

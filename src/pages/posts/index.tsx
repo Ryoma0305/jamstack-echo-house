@@ -1,4 +1,4 @@
-import { Posts as PostsComponent } from "@/components/posts";
+import { Posts as PostsComponent } from "@/components/Posts";
 
 const Posts = () => {
   return <PostsComponent />;
