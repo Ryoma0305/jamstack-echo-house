@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
-import { usePosts } from "@/hooks/usePosts";
+
 import Head from "next/head";
+import { usePosts } from "@/hooks/useFetchArray";
 // import PostService from "../services/PostService";
 // import PostType from "../types/PostType";
 

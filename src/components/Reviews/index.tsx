@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { useReviews } from "@/hooks/useReviews";
 import Head from "next/head";
+import { useReviews } from "@/hooks/useFetchArray";
 
 export const Reviews = () => {
   const { data, error, isLoading, isEmpty } = useReviews();
