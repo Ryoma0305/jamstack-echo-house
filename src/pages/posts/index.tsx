@@ -1,7 +1,15 @@
+import Head from "next/head";
 import { Posts as PostsComponent } from "@/components/Posts";
 
 const Posts = () => {
-  return <PostsComponent />;
+  return (
+    <>
+      <Head>
+        <title></title>
+      </Head>
+      <PostsComponent />
+    </>
+  );
 };
 
 export default Posts;

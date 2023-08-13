@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { fetcher } from "src/utils/fetcher";
+import { fetcher } from "@/utils/fetcher";
 
 export const useReview = () => {
   const router = useRouter();
